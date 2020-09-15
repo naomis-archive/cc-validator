@@ -1,5 +1,5 @@
 import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -24,6 +24,8 @@ export class FormComponent implements OnInit {
   validate(str: string): void {
     this.input = str;
     this.len = str.length
+    this.message = "";
+    this.type = "";
     if (str.includes('-')) str = str.replace(/-/g, '');
     if (str.length < 13 || str.length > 16) {
       this.message = 'Invalid card length';
@@ -41,14 +43,23 @@ export class FormComponent implements OnInit {
       }
     }
     if (str.startsWith("51") || str.startsWith("52") || str.startsWith("53") || str.startsWith("54") || str.startsWith("55"))  {
-      this.type =
+      this.type = "MasterCard"
+      if (str.length !== 16) {
+        this.message = "Invalid MasterCard number"
+      }
+    }
+    if (str.startsWith("4")) {
+      this.type = "Visa"
+    }
+    if (!this.type) {
+      this.type = "Unrecognised"
     }
     let evens = '',
       oddSum = 0;
-    for (let i = 0; i < str.length; i += 2) {
+    for (let i = str.length - 2; i >= 0; i -= 2) {
       evens += (parseInt(str[i]) * 2).toString();
     }
-    for (let i = 1; i < str.length; i += 2) {
+    for (let i = str.length - 1; i >= 0; i -= 2) {
       oddSum += parseInt(str[i]);
     }
     let evenSum = 0;
@@ -60,5 +71,6 @@ export class FormComponent implements OnInit {
       this.message = 'Invalid checksum.';
       return;
     }
+    this.message = "Congrats! This is a valid credit card!"
   }
 }

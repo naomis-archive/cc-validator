@@ -1,8 +1,9 @@
-<form>
-  <input #number name="number" type="text" required>
+
+  <input #number name="number" type="text" required ng-enter="this.validate(number.value)">
   <button type="button" (click)="this.validate(number.value)">Validate!</button>
-</form>
-<p>Message: {{message}}</p>
-<p>Input: {{input}}</p>
-<p>Length: {{len}}</p>
-<p>Card Type: {{type}}</p>
+<div>
+<p *ngIf="this.message">Message: {{message}}</p>
+<p *ngIf="this.input">Input: {{input}}</p>
+<p *ngIf="this.len">Length: {{len}}</p>
+<p *ngIf="this.type">Card Type: {{type}}</p>
+</div>
