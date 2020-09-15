@@ -1,0 +1,6 @@
+<form>
+  <input #number name="number" type="text" required>
+  <button type="button" (click)="this.validate(number.value)">Validate!</button>
+</form>
+<p>Message: {{message}}</p>
+<p>Input: {{input}}</p>
