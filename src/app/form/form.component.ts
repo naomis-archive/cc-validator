@@ -1,5 +1,4 @@
-import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -20,6 +19,10 @@ export class FormComponent implements OnInit {
   input = '';
   len = 0;
   type=""
+
+  shouldSubmit(event, val: string): void {
+    if (event.keyCode === 13) this.validate(val)
+  }
 
   validate(str: string): void {
     this.input = str;

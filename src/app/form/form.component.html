@@ -1,5 +1,5 @@
 
-  <input #number name="number" type="text" required ng-enter="this.validate(number.value)">
+  <input #number name="number" type="text" required (keydown)="this.shouldSubmit($event, number.value)">
   <button type="button" (click)="this.validate(number.value)">Validate!</button>
 <div>
 <p *ngIf="this.message">Message: {{message}}</p>
