@@ -4,8 +4,7 @@ Project Description
 
 ## Live Version
 
-This page is not yet deployed.
-<!--This page is currently deployed. [View the live website.]()-->
+This page is currently deployed. [View the live website.](https://www.nhcarrigan/com/cc-validator)
 
 ## Feedback, Bugs, and Contributions
 
