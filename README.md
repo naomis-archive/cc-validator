@@ -7,7 +7,7 @@ This is a credit card number validator which uses Luhn's Algorithm.
 
 ## Live Version
 
-This page is currently deployed. [View the live website.](https://www.nhcarrigan/com/cc-validator)
+This project is archived and thus is not deployed.
 
 ## Feedback and Bugs
 
